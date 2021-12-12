@@ -5,7 +5,7 @@ import dotenv from "dotenv"
 const server = new Server()
 dotenv.config()
 mongoose
-    .connect('mongodb://localhost/pizza_delivery', {
+    .connect(process.env.MONGODB_URL, {
         useNewUrlParser: true, 
         useUnifiedTopology: true 
     })
