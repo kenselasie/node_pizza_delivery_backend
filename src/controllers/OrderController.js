@@ -25,7 +25,6 @@ export class OrderController {
 
     static async addOrder(req, res) {     
         const { menu_id, quantity  } = req.body
-        console.log(req.userAuthData)
         try {
             const menu = await Menu.findById(menu_id)
             if (!menu) {
