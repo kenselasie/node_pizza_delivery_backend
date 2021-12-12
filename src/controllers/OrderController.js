@@ -1,6 +1,6 @@
 import Order from '../models/OrderModel.js'
 import Menu from '../models/MenuModel.js'
-import { validMongoDBId } from './helpers/helperFunctions.js'
+import { sendEmailMessage  } from './helpers/helperFunctions.js'
 
 
 
@@ -37,14 +37,41 @@ export class OrderController {
                 menu: menu_id,
                 quantity: quantity
             })
-            await order.save()
-            res.status(201).json({
-                message: 'Order successfully made',
-                order: {
-                    menu: order.menu,
-                    quantity: order.quantity
-                }
-            })      
+            const saveOrder = await order.save()
+
+
+            if (saveOrder) {
+                let price = parseFloat(menu.price)
+                let quantityInt = parseInt(quantity)
+
+                const total = price * quantityInt
+                sendEmailMessage(
+                    "Mailgun Sandbox <postmaster@sandbox73976b9442b344a8b85348577eb32fc5.mailgun.org>",
+                    req.userAuthData.email,
+                    'Pizza Receipt',
+                    `Hi Customer, your order was successful, \n\n Menu bought: \t  ${menu.menu_name} \n\n Quantity: \t ${quantity} \n\n Total: \t ${total}`,
+                    (err, body) => {
+                       if (err) return res.status(201).json({
+                            message: 'Order successfully made',
+                            receiptSent: false,
+                            order: {
+                                menu: order.menu,
+                                quantity: order.quantity
+                            }
+                        })
+                       
+                       return res.status(201).json({
+                            message: 'Order successfully made',
+                            receiptSent: true,
+                            order: {
+                                menu: order.menu,
+                                quantity: order.quantity
+                            }
+                        })
+                    }
+
+                )
+            }      
             
         } catch (err) {
             console.log(err)
