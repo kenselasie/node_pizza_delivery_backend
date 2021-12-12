@@ -14,3 +14,5 @@ mongoose
 
 server.setRoutes()
 server.startServer()
+
+export default server.app
