@@ -49,25 +49,25 @@ Find below all APIs of the system.
 `GET /http://localhost:3000/api/user/`
 
 ### Response
-    ```
+```
     {
-            "message": "Successful",
-            "data": [
-                {
-                    "_id": "61b538be0dfb8821d908ebcf",
-                    "name": "John Doe",
-                    "email": "john@gmail.com",
-                    "street_address": "Street 1"
-                },
-                {
-                    "_id": "61b5403bf29452543c4a6e6d",
-                    "name": "Foo Bar",
-                    "email": "foobar@gmail.com",
-                    "street_address": "Street 2"
-                }
-            ]
-        }
-    ```
+        "message": "Successful",
+        "data": [
+            {
+                "_id": "61b538be0dfb8821d908ebcf",
+                "name": "John Doe",
+                "email": "john@gmail.com",
+                "street_address": "Street 1"
+            },
+            {
+                "_id": "61b5403bf29452543c4a6e6d",
+                "name": "Foo Bar",
+                "email": "foobar@gmail.com",
+                "street_address": "Street 2"
+            }
+        ]
+    }
+```
 
 ## Add new user
 
@@ -85,9 +85,8 @@ Find below all APIs of the system.
 ```
 
 ### Response
-
-    ```
+```
     {
         "message": "User Successfully Created"
     }
-    ```
+```
