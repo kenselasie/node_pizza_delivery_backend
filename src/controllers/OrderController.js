@@ -8,7 +8,7 @@ export class OrderController {
     static async getAllOrders(req, res) {
         try {
             const orders = await Order.find()
-                .populate()
+                .populate('menu', 'menu_name price')
                 .select('menu quantity')
 
             if (orders) {
