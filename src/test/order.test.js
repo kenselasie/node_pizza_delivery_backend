@@ -6,7 +6,7 @@ chai.should()
 
 chai.use(chaiHttp)
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlbnNlbGFzaWVAZ21haWwuY29tIiwidXNlcl9pZCI6IjYxYjUzOGJlMGRmYjg4MjFkOTA4ZWJjZiIsImlhdCI6MTYzOTM0NTYxNiwiZXhwIjoxNjM5MzgxNjE2fQ.Zt6yJ6rbCkk-tPZfpEuueKz3RpwNfxvHpjZLgqqdm3w"
+const token = process.env.UNIT_TEST_USER_TOKEN
 const order = {
     menu_id: "61b551563eabe49651f30208",
     quantity: "100"
@@ -44,6 +44,7 @@ describe('Orders API', () => {
                     response.body.should.have.property('order')
                     done()
                 })
+                .timeout(7000)
 
         })
     })
