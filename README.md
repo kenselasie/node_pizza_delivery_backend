@@ -10,7 +10,7 @@ The entry point to the application is the `src/index.js` file.
 
 ## To Install
 Kindly clone the repository 
-    `git clone https://github.com/kenselasie/node_pizza_delivery_backend.git`
+`git clone https://github.com/kenselasie/node_pizza_delivery_backend.git`
 
 Next, in the terminal, install dependencies
     npm install
@@ -27,19 +27,20 @@ Copy the items in `env.example` file and fill then with the necessary fields
 
 ## Run the app
 When the above requirements are met, you can now run your app with
-    npm run start
+`npm run start`
 
 To run in dev mode
-    npm run dev
+`npm run dev`
 
 ## Run the tests
 To run tests, make sure the database is populated with some data. That is: `Users`, `Menus` and `Orders`
 Also make sure `UNIT_TEST_USER_TOKEN` is given a value of a valid user token. To run unit test, run this command 
-    npm test
+`npm test`
 
 ## Run coverage
 To run coverage, run this command 
-    npm run coverage
+`npm run coverage`
+    
 
 # REST API
 
