@@ -37,6 +37,10 @@ To run tests, make sure the database is populated with some data. That is: `User
 Also make sure `UNIT_TEST_USER_TOKEN` is given a value of a valid user token. To run unit test, run this command 
     npm test
 
+## Run coverage
+To run coverage, run this command 
+    npm run coverage
+
 # REST API
 
 Find below all APIs of the system.
